@@ -2,6 +2,9 @@
 Miscellaneous tips and tricks for Splunk
 
 ## Use Case 1 - Create Enterprise Security notables in separate indexes
+Date: 2021-02-14
+Splunk version: 8.1
+Enterprise Security version: 6.4
 
 See local/savedsearches.conf: [Access - Custom arbitrary index - Test - Rule]
 
