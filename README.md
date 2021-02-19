@@ -30,7 +30,7 @@ The use case is for forwarding to Phantom or other IR platforms in order to dril
 
 	`notable`
 	| eval analytic_story=spath(annotations,"analytic_story{}")
-	| join type=left analytic_story
+	| join type=left max=0 analytic_story
 	[
 	|rest /services/saved/searches splunk_server=local count=0
 	| search title="*Response Task"
