@@ -2,8 +2,8 @@
 Miscellaneous tips and tricks for Splunk
 
 ## Use Case 1 - Create Enterprise Security notables in separate indexes
-Date: 2021-02-14
-Splunk version: 8.1
+Date: 2021-02-14.  
+Splunk version: 8.1.  
 Enterprise Security version: 6.4
 
 See local/savedsearches.conf: [Access - Custom arbitrary index - Test - Rule]
@@ -20,10 +20,10 @@ Bear in mind that editing a correlation search with these settings from the GUI 
 If you want your correlation searches to show up in Incident Review, also edit the **get_notable_index** macro in SA-ThreatIntelligence/local/macros.conf
 
 ## Use Case 2 - Get Analytic Story Response Tasks for Notable Events
-Date: 2021-02-18
-Splunk Version: 8.1
-Enterprise Security version: 6.4
-ESCU Version: 3.14.0
+Date: 2021-02-18.  
+Splunk Version: 8.1.  
+Enterprise Security version: 6.4.  
+ESCU Version: 3.14.0.  
 
 This search will look up notable events from ES, join in Analytic Story from ESCU and get the search (Response Task) used to Investigate this
 The use case is for forwarding to Phantom or other IR platforms in order to drill down to an investigative search.
