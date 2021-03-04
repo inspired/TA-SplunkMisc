@@ -43,7 +43,7 @@ The use case is for forwarding to Phantom or other IR platforms in order to dril
 	| expandtoken
 
 ### Also add in legacy ES Drilldowns
-This will add drilldowns as response tasks. Add this at the end of the search before expandtoken
+This will add drilldowns as response tasks. Add this at the end of the search before expandtoken.  
 TODO: Add the drilldown_latest and drilldown_earliest
 
 	```
