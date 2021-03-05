@@ -44,7 +44,10 @@ The use case is for forwarding to Phantom or other IR platforms in order to dril
 
 
 ### Tupled Response Tasks (one Notable, multiple Response Tasks):
-The benefit of this one is that 1 Notable is 1 Notable. The response tasks are a tupled MV field called *response_tasks*
+The benefit of this one is that 1 Notable is 1 Notable. The response tasks are a tupled MV field called *response_tasks* in this format:
+
+> SEARCH TITLE//////THE SPL SEARCH//////SEARCH DESCRIPTION
+
 
 	``` Get all Notables ```
 	`notable`
