@@ -44,24 +44,33 @@ The use case is for forwarding to Phantom or other IR platforms in order to dril
 
 
 ### Tupled Response Tasks (one Notable, multiple Response Tasks):
-	| makeresults count=3
-	| eval analytic_story="SamSam Ransomware", src="8.8.8.8", dest="1.1.1.1" 
-	| join type=left max=0 analytic_story 
+The benefit of this one is that 1 Notable is 1 Notable. The response tasks are a tupled MV field called *response_tasks*
+
+	``` Get all Notables ```
+	`notable`
+	``` Extract the Analytic Story (our join key) from annotations ```
+	| eval analytic_story=spath(annotations,"analytic_story{}")
+	``` Get Response Tasks defined in the Analytic Story saved searches ```
+	| join type=left max=0 analytic_story
 	[
-	| rest /services/saved/searches splunk_server=local count=0 
-	| search title="*Response Task" 
+	|rest /services/saved/searches splunk_server=local count=0
+	| search title="*Response Task"
 	| eval analytic_story=spath('action.escu.analytic_story',"{}")
 	| table title, description, search, analytic_story
-	| mvexpand analytic_story 
-	| rename * AS response_task.* 
-	| rename response_task.analytic_story AS analytic_story 
+	| mvexpand analytic_story
+	| rename * AS response_task.*
+	| rename response_task.analytic_story AS analytic_story
 	| eval response_task.mv1=mvzip(mvzip('response_task.title','response_task.search',"//////"), 'response_task.description', "//////")
 	| stats values(response_task.mv1) AS response_task.mv2 BY analytic_story
 	| eval response_task.mv3=mvjoin('response_task.mv2',"######")
-	| fields response_task.mv3 analytic_story
-	] 
+	]
 	| eval response_tasks=split('response_task.mv3',"######")
+	| fields - response_task.*
 	| expandtoken
+	``` 
+	Next step:
+	Forward your events to Phantom and have Phantom execute the searches in response_tasks and document findings (I.e. generic Playbook that iterates over the response_tasks)
+	```
 	
 
 ### Also add in legacy ES Drilldowns
