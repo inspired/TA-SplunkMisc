@@ -25,7 +25,7 @@ Splunk Version: 8.1.
 Enterprise Security version: 6.4.  
 ESCU Version: 3.14.0.  
 
-This search will look up notable events from ES, join in Analytic Story from ESCU and get the search (Response Task) used to Investigate this
+This search will look up notable events from ES, join in Analytic Story from ESCU and get the search (Response Task) used to Investigate this.  
 The use case is for forwarding to Phantom or other IR platforms in order to drill down to an investigative search.
 
 	`notable`
@@ -44,7 +44,8 @@ The use case is for forwarding to Phantom or other IR platforms in order to dril
 
 
 ### Tupled Response Tasks (one Notable, multiple Response Tasks):
-The benefit of this one is that 1 Notable is 1 Notable. The response tasks are a tupled MV field called *response_tasks* in this format:
+The benefit of this one is that 1 Notable is 1 Notable.  
+The response tasks are a tupled MV field called *response_tasks* in this format:
 
 > SEARCH TITLE//////THE SPL SEARCH//////SEARCH DESCRIPTION
 
