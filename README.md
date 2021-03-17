@@ -75,7 +75,9 @@ The use case is for forwarding to Phantom or other IR platforms in order to dril
 	``` 
 	Next step:
 	Forward your events to Phantom and have Phantom execute the searches in response_tasks and document findings (I.e. generic Playbook that iterates over the response_tasks)
-	```
+	
+	| sendalert sendtophantom param.phantom_server="Mortens Phantom-server" param.sensitivity="amber" param.severity="high" param.label="notable"```
+	
 	
 ### Phantom Playbook
 This is where the Phantom playbook that executes these results will go.
