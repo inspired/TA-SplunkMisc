@@ -80,7 +80,8 @@ The use case is for forwarding to Phantom or other IR platforms in order to dril
 	
 	
 ### Phantom Playbook
-This is where the Phantom playbook that executes these results will go.
+This is where the Phantom playbook that executes these results will go.  
+It's basically just a Playbook with a **run query** that is passed **response_task_search**
 
 ### Old fun
 
