@@ -68,8 +68,8 @@ The use case is for forwarding to Phantom or other IR platforms in order to dril
 	| fields - response_tasks response_task
 
 	| stats values(*) AS * values(_raw) AS _raw BY event_id
-	``` Add Legacy Drilldown searches to Response Task Search ```
-	| eval drilldown_search_with_time = "earliest=" . drilldown_earliest . " latest=" . drilldown_latest . " " . drilldown_search
+	``` Inject Legacy Drilldown searches to Response Task Search. Caveat: Only works with standard SPL, not | from command searches as they don't support adding earliest= and latest= ```
+	| eval drilldown_search_with_time = if(match(drilldown_search, "^|\s?from"), drilldown_search, "earliest=" . drilldown_earliest . " latest=" . drilldown_latest . " " . drilldown_search )
 	| eval response_task_search=mvappend(response_task_search,drilldown_search_with_time)
 	| expandtoken
 	``` 
