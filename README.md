@@ -162,7 +162,7 @@ This is just the base search. Add Notable Saved Search when done.
 	index=azure_azure sourcetype=mscs:azure:eventhub body.records.category=ApplicationGateway*
 	| eval action='body.records.properties.action'
 	| eval src='body.records.properties.clientIp'
-	| eval description='body.records.properties.message'
+	| eval signature='body.records.properties.message'
 	| eval dest=if('body.records.properties.hostname' != "<undefined>",mvindex(split('body.records.properties.hostname',":"),0),null())
 	| eval url=if(mvindex(split('body.records.properties.hostname',":"),1) == "80", "http://", "tcp://") . mvindex(split('body.records.properties.hostname',":"),0) . 'body.records.properties.requestUri'
 	| eval orig_raw = _raw
