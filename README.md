@@ -175,5 +175,5 @@ Enterprise Security version: 6.4.
 
 This should be normalized to fit into the Web DM.
 
-	index=* sourcetype=mscs:azure:eventhub body.records.category=ApplicationGatewayActivityLog
+	index=* sourcetype=mscs:azure:eventhub body.records.category=ApplicationGatewayAccessLog
 
