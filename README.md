@@ -159,7 +159,7 @@ Enterprise Security version: 6.4.
 
 This is just the base search. Add Notable Saved Search when done.
 
-	index=azure_azure sourcetype=mscs:azure:eventhub body.records.category=ApplicationGatewayFirewallLog
+	index=* sourcetype=mscs:azure:eventhub body.records.category=ApplicationGatewayFirewallLog
 	| eval action='body.records.properties.action'
 	| eval src='body.records.properties.clientIp'
 	| eval signature='body.records.properties.message'
@@ -174,4 +174,6 @@ Splunk Version: 8.2.
 Enterprise Security version: 6.4.  
 
 This should be normalized to fit into the Web DM.
+
+	index=* sourcetype=mscs:azure:eventhub body.records.category=ApplicationGatewayActivityLog
 
