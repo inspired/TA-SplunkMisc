@@ -168,12 +168,15 @@ This is just the base search. Add Notable Saved Search when done.
 	| eval orig_raw = _raw
 	
 	
-## Use Case 4 - Azure Web Application Activity Logs (WIP)
+## Use Case 4 - Azure Web Application Activity Logs
 Date: 2021-09-23.  
 Splunk Version: 8.2.  
 Enterprise Security version: 6.4.  
+Splunk TA enhancement: Splunk Add-on for Microsoft Cloud Services version 4.1.4. 
 
-This should be normalized to fit into the Web DM.
+Normalized to fit into the Web Data Model.  
+See the props.conf, transforms.conf, tags.conf and eventtypes.conf files.
+
 
 	index=* sourcetype=mscs:azure:eventhub body.records.category=ApplicationGatewayAccessLog
 
